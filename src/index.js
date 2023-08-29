@@ -1,1 +1,3 @@
-console.log("hello");
+import getWeatherData from "./weather-data";
+
+getWeatherData();
