@@ -12,6 +12,11 @@ export default async function fetchWeatherData(location = "auto:ip") {
   try {
     const response = await fetch(URL, { mode: "cors" });
     const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.error.message);
+    }
+
     displayLocation(getLocation(data));
     displayCurrentWeather(getCurrentWeather(data));
     displayTomorrowThisHourWeather(getTomorrowThisHourWeather(data));
