@@ -10,6 +10,9 @@ const location = document.querySelector("[data-location]");
 const currentWeatherInfo = document.querySelector(
   "[data-current-weather] > ul",
 );
+const tomorrowThisHourWeather = document.querySelector(
+  "[data-tomorrow-this-hour-weather] > ul",
+);
 
 export default function searchLocation() {
   searchLocationButton.addEventListener("click", () => {
@@ -40,7 +43,7 @@ export function displayCurrentWeather(data) {
   temperature.textContent = `Temperature: ${data.temperatureCelsius}\u2103`;
   windDirection.textContent = `Wind Direction: ${data.windDirection}`;
   windSpeed.textContent = `Wind Speed: ${data.windSpeedMPH}`;
-  lastUpdated.textContent = `Last Updated: ${data.lastUpdated}`;
+  lastUpdated.textContent = `Last Updated: ${data.lastUpdated}mph`;
 
   currentWeatherInfo.append(
     conditionIcon,
@@ -51,5 +54,35 @@ export function displayCurrentWeather(data) {
     windDirection,
     windSpeed,
     lastUpdated,
+  );
+}
+
+export function displayTomorrowThisHourWeather(data) {
+  tomorrowThisHourWeather.replaceChildren();
+
+  const conditionIcon = document.createElement("img");
+  const condition = document.createElement("li");
+  const dateAndTime = document.createElement("li");
+  const humidity = document.createElement("li");
+  const temperature = document.createElement("li");
+  const windDirection = document.createElement("li");
+  const windSpeed = document.createElement("li");
+
+  conditionIcon.src = `https:${data.conditionIcon}`;
+  condition.textContent = `Condition: ${data.condition}`;
+  dateAndTime.textContent = `Date & Time: ${data.dateAndTime}`;
+  humidity.textContent = `Humidity: ${data.humidity}`;
+  temperature.textContent = `Temperature: ${data.temperatureCelsius}\u2103`;
+  windDirection.textContent = `Wind Direction: ${data.windDirection}`;
+  windSpeed.textContent = `Wind Speed: ${data.windSpeedMPH}mph`;
+
+  tomorrowThisHourWeather.append(
+    conditionIcon,
+    condition,
+    dateAndTime,
+    humidity,
+    temperature,
+    windDirection,
+    windSpeed,
   );
 }

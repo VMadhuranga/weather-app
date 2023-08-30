@@ -1,4 +1,8 @@
-import { displayLocation, displayCurrentWeather } from "./DOM-controller";
+import {
+  displayLocation,
+  displayCurrentWeather,
+  displayTomorrowThisHourWeather,
+} from "./DOM-controller";
 
 export default async function fetchWeatherData(location = "auto:ip") {
   const API_KEY = "4be63e822db44a8d81c64432232608";
@@ -8,10 +12,9 @@ export default async function fetchWeatherData(location = "auto:ip") {
   try {
     const response = await fetch(URL, { mode: "cors" });
     const data = await response.json();
-    console.log(data);
     displayLocation(getLocation(data));
     displayCurrentWeather(getCurrentWeather(data));
-    console.log(getTomorrowThisHourWeather(data));
+    displayTomorrowThisHourWeather(getTomorrowThisHourWeather(data));
   } catch (error) {
     console.log(error);
   }
