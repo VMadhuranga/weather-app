@@ -6,6 +6,33 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <h1>Test</h1>
+    <header>
+      <h1>Weather App</h1>
+      <div class="search-box">
+        <input type="text" placeholder="Enter your location" />
+        <button>Search</button>
+      </div>
+    </header>
+    <div class="settings-container">
+      <label for="temperature"
+        >Show temperature in:
+        <select name="temperature" id="temperature">
+          <option value="celsius">celsius</option>
+          <option value="fahrenheit">fahrenheit</option>
+        </select>
+      </label>
+      <label for="wind-speed">
+        Show wind speed in:
+        <select name="wind-speed" id="wind-speed">
+          <option value="kph">kph</option>
+          <option value="mph">mph</option>
+        </select>
+      </label>
+    </div>
+    <h2 class="location"></h2>
+    <div class="Weather-data-container">
+      <ul class="current-weather"></ul>
+      <ul class="tomorrow-this-hour-weather"></ul>
+    </div>
   </body>
 </html>
