@@ -6,6 +6,7 @@ const searchLocationInput = document.querySelector(
 const searchLocationButton = document.querySelector(
   "[data-search-location-button]",
 );
+const location = document.querySelector("[data-location]");
 const currentWeatherInfo = document.querySelector(
   "[data-current-weather] > ul",
 );
@@ -14,6 +15,10 @@ export default function searchLocation() {
   searchLocationButton.addEventListener("click", () => {
     fetchWeatherData(searchLocationInput.value);
   });
+}
+
+export function displayLocation(value) {
+  location.textContent = value;
 }
 
 export function displayCurrentWeather(data) {
