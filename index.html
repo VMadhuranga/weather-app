@@ -9,8 +9,12 @@
     <header>
       <h1>Weather App</h1>
       <div class="search-box">
-        <input type="text" placeholder="Enter your location" />
-        <button>Search</button>
+        <input
+          type="text"
+          placeholder="Enter your location"
+          data-search-location-input
+        />
+        <button data-search-location-button>Search</button>
       </div>
     </header>
     <div class="settings-container">
@@ -31,8 +35,11 @@
     </div>
     <h2 class="location"></h2>
     <div class="Weather-data-container">
-      <ul class="current-weather"></ul>
-      <ul class="tomorrow-this-hour-weather"></ul>
+      <ul class="current-weather" data-current-weather></ul>
+      <ul
+        class="tomorrow-this-hour-weather"
+        data-tomorrow-this-hour-weather
+      ></ul>
     </div>
   </body>
 </html>
