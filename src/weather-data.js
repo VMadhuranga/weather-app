@@ -1,3 +1,5 @@
+import { displayCurrentWeather } from "./DOM-controller";
+
 export default async function fetchWeatherData(location = "auto:ip") {
   const API_KEY = "4be63e822db44a8d81c64432232608";
   // const URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=kalutara`;
@@ -8,7 +10,7 @@ export default async function fetchWeatherData(location = "auto:ip") {
     const data = await response.json();
     console.log(data);
     console.log(getLocation(data));
-    console.log(getCurrentWeather(data));
+    displayCurrentWeather(getCurrentWeather(data));
     console.log(getTomorrowThisHourWeather(data));
   } catch (error) {
     console.log(error);
