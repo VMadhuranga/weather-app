@@ -16,6 +16,9 @@ const tomorrowThisHourWeather = document.querySelector(
 const temperatureSelectInput = document.querySelector(
   "[data-temperature-select-input]",
 );
+const windSpeedSelectInput = document.querySelector(
+  "[data-wind-speed-select-input]",
+);
 
 export default function searchLocation() {
   searchLocationButton.addEventListener("click", () => {
@@ -45,7 +48,7 @@ export function displayCurrentWeather(data) {
   humidity.textContent = `Humidity: ${data.humidity}`;
   temperature.textContent = showTemperature(data);
   windDirection.textContent = `Wind Direction: ${data.windDirection}`;
-  windSpeed.textContent = `Wind Speed: ${data.windSpeedMPH}`;
+  windSpeed.textContent = showWindSpeed(data);
   lastUpdated.textContent = `Last Updated: ${data.lastUpdated}mph`;
 
   currentWeatherInfo.append(
@@ -77,7 +80,7 @@ export function displayTomorrowThisHourWeather(data) {
   humidity.textContent = `Humidity: ${data.humidity}`;
   temperature.textContent = showTemperature(data);
   windDirection.textContent = `Wind Direction: ${data.windDirection}`;
-  windSpeed.textContent = `Wind Speed: ${data.windSpeedMPH}mph`;
+  windSpeed.textContent = showWindSpeed(data);
 
   tomorrowThisHourWeather.append(
     conditionIcon,
@@ -104,5 +107,22 @@ function showTemperature(data) {
 
   if (temperatureSelectInput.value === "celsius") {
     return `Temperature: ${data.temperatureCelsius}\u2103`;
+  }
+}
+
+export function changeWindSpeed(...data) {
+  windSpeedSelectInput.addEventListener("change", () => {
+    displayCurrentWeather(data[0]);
+    displayTomorrowThisHourWeather(data[1]);
+  });
+}
+
+function showWindSpeed(data) {
+  if (windSpeedSelectInput.value === "kph") {
+    return `Wind Speed: ${data.windSpeedKPH}kph`;
+  }
+
+  if (windSpeedSelectInput.value === "mph") {
+    return `Wind Speed: ${data.windSpeedMPH}mph`;
   }
 }
