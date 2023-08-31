@@ -39,3 +39,20 @@ header > h1 {
   border: none;
   border-radius: 5px;
 }
+
+.settings-container {
+  font-size: 1rem;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.settings-container select {
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  border-radius: 5px;
+  outline: none;
+}
