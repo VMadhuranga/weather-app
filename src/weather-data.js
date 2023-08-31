@@ -2,6 +2,7 @@ import {
   displayLocation,
   displayCurrentWeather,
   displayTomorrowThisHourWeather,
+  changeTemperature,
 } from "./DOM-controller";
 
 export default async function fetchWeatherData(location = "auto:ip") {
@@ -20,6 +21,10 @@ export default async function fetchWeatherData(location = "auto:ip") {
     displayLocation(getLocation(data));
     displayCurrentWeather(getCurrentWeather(data));
     displayTomorrowThisHourWeather(getTomorrowThisHourWeather(data));
+    changeTemperature(
+      getCurrentWeather(data),
+      getTomorrowThisHourWeather(data),
+    );
   } catch (error) {
     console.log(error);
   }

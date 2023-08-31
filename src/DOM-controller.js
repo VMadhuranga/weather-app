@@ -13,6 +13,9 @@ const currentWeatherInfo = document.querySelector(
 const tomorrowThisHourWeather = document.querySelector(
   "[data-tomorrow-this-hour-weather] > ul",
 );
+const temperatureSelectInput = document.querySelector(
+  "[data-temperature-select-input]",
+);
 
 export default function searchLocation() {
   searchLocationButton.addEventListener("click", () => {
@@ -40,7 +43,7 @@ export function displayCurrentWeather(data) {
   condition.textContent = `Condition: ${data.condition}`;
   dateAndTime.textContent = `Date & Time: ${data.dateAndTime}`;
   humidity.textContent = `Humidity: ${data.humidity}`;
-  temperature.textContent = `Temperature: ${data.temperatureCelsius}\u2103`;
+  temperature.textContent = showTemperature(data);
   windDirection.textContent = `Wind Direction: ${data.windDirection}`;
   windSpeed.textContent = `Wind Speed: ${data.windSpeedMPH}`;
   lastUpdated.textContent = `Last Updated: ${data.lastUpdated}mph`;
@@ -72,7 +75,7 @@ export function displayTomorrowThisHourWeather(data) {
   condition.textContent = `Condition: ${data.condition}`;
   dateAndTime.textContent = `Date & Time: ${data.dateAndTime}`;
   humidity.textContent = `Humidity: ${data.humidity}`;
-  temperature.textContent = `Temperature: ${data.temperatureCelsius}\u2103`;
+  temperature.textContent = showTemperature(data);
   windDirection.textContent = `Wind Direction: ${data.windDirection}`;
   windSpeed.textContent = `Wind Speed: ${data.windSpeedMPH}mph`;
 
@@ -85,4 +88,21 @@ export function displayTomorrowThisHourWeather(data) {
     windDirection,
     windSpeed,
   );
+}
+
+export function changeTemperature(...data) {
+  temperatureSelectInput.addEventListener("change", () => {
+    displayCurrentWeather(data[0]);
+    displayTomorrowThisHourWeather(data[1]);
+  });
+}
+
+function showTemperature(data) {
+  if (temperatureSelectInput.value === "fahrenheit") {
+    return `Temperature: ${data.temperatureFahrenheit}\u2109`;
+  }
+
+  if (temperatureSelectInput.value === "celsius") {
+    return `Temperature: ${data.temperatureCelsius}\u2103`;
+  }
 }
