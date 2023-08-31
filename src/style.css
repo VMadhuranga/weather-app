@@ -56,3 +56,10 @@ header > h1 {
   border-radius: 5px;
   outline: none;
 }
+
+.location {
+  font-size: 1.6rem;
+  color: #1f2937;
+  text-align: center;
+  margin: 20px 0;
+}
