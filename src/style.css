@@ -42,6 +42,7 @@ header > h1 {
 
 .settings-container {
   font-size: 1rem;
+  color: #1f2937;
   padding: 5px 10px;
   display: flex;
   justify-content: end;
@@ -58,8 +59,38 @@ header > h1 {
 }
 
 .location {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #1f2937;
   text-align: center;
-  margin: 20px 0;
+  margin: 20px 0 30px;
+}
+
+.weather-data-container {
+  color: #1f2937;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+.weather-data-container div h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.weather-data-container ul {
+  font-size: 1.2rem;
+  font-weight: 500;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.weather-data-container ul img {
+  width: 75px;
+  height: auto;
+  margin: 0 auto;
 }

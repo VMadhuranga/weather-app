@@ -49,7 +49,7 @@ export function displayCurrentWeather(data) {
   temperature.textContent = showTemperature(data);
   windDirection.textContent = `Wind Direction: ${data.windDirection}`;
   windSpeed.textContent = showWindSpeed(data);
-  lastUpdated.textContent = `Last Updated: ${data.lastUpdated}mph`;
+  lastUpdated.textContent = `Last Updated: ${data.lastUpdated}`;
 
   currentWeatherInfo.append(
     conditionIcon,
