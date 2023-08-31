@@ -74,7 +74,7 @@ header > h1 {
   gap: 100px;
 }
 
-.weather-data-container div h3 {
+.weather-data-container > div > h3 {
   font-size: 1.5rem;
   text-align: center;
 }
@@ -89,7 +89,7 @@ header > h1 {
   gap: 8px;
 }
 
-.weather-data-container ul img {
+.weather-data-container ul > img {
   width: 75px;
   height: auto;
   margin: 0 auto;
