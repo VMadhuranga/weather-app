@@ -10,24 +10,27 @@ export default async function fetchWeatherData(location = "auto:ip") {
   const API_KEY = "4be63e822db44a8d81c64432232608";
   const URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=2`;
 
-  try {
-    const response = await fetch(URL, { mode: "cors" });
-    const data = await response.json();
+  const response = await fetch(URL, { mode: "cors" });
+  const data = await response.json();
 
-    if (!response.ok) {
-      alert(data.error.message);
+  if (response.ok) {
+    try {
+      displayLocation(getLocation(data));
+      displayCurrentWeather(getCurrentWeather(data));
+      displayTomorrowThisHourWeather(getTomorrowThisHourWeather(data));
+      changeTemperature(
+        getCurrentWeather(data),
+        getTomorrowThisHourWeather(data),
+      );
+      changeWindSpeed(
+        getCurrentWeather(data),
+        getTomorrowThisHourWeather(data),
+      );
+    } catch (error) {
+      console.log(error);
     }
-
-    displayLocation(getLocation(data));
-    displayCurrentWeather(getCurrentWeather(data));
-    displayTomorrowThisHourWeather(getTomorrowThisHourWeather(data));
-    changeTemperature(
-      getCurrentWeather(data),
-      getTomorrowThisHourWeather(data),
-    );
-    changeWindSpeed(getCurrentWeather(data), getTomorrowThisHourWeather(data));
-  } catch (error) {
-    console.log(error);
+  } else {
+    alert(data.error.message);
   }
 }
 

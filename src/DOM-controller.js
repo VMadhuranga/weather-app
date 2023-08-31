@@ -22,7 +22,11 @@ const windSpeedSelectInput = document.querySelector(
 
 export default function searchLocation() {
   searchLocationButton.addEventListener("click", () => {
-    fetchWeatherData(searchLocationInput.value);
+    if (searchLocationInput.value) {
+      fetchWeatherData(searchLocationInput.value);
+    } else {
+      alert("Please enter your location");
+    }
   });
 }
 
