@@ -68,6 +68,7 @@ header > h1 {
 .weather-data-container {
   color: #1f2937;
   padding: 10px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

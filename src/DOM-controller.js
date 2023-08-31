@@ -101,13 +101,15 @@ export function changeTemperature(...data) {
 }
 
 function showTemperature(data) {
+  let value;
+
   if (temperatureSelectInput.value === "fahrenheit") {
-    return `Temperature: ${data.temperatureFahrenheit}\u2109`;
+    value = `Temperature: ${data.temperatureFahrenheit}\u2109`;
+  } else if (temperatureSelectInput.value === "celsius") {
+    value = `Temperature: ${data.temperatureCelsius}\u2103`;
   }
 
-  if (temperatureSelectInput.value === "celsius") {
-    return `Temperature: ${data.temperatureCelsius}\u2103`;
-  }
+  return value;
 }
 
 export function changeWindSpeed(...data) {
@@ -118,11 +120,13 @@ export function changeWindSpeed(...data) {
 }
 
 function showWindSpeed(data) {
+  let value;
+
   if (windSpeedSelectInput.value === "kph") {
-    return `Wind Speed: ${data.windSpeedKPH}kph`;
+    value = `Wind Speed: ${data.windSpeedKPH}kph`;
+  } else if (windSpeedSelectInput.value === "mph") {
+    value = `Wind Speed: ${data.windSpeedMPH}mph`;
   }
 
-  if (windSpeedSelectInput.value === "mph") {
-    return `Wind Speed: ${data.windSpeedMPH}mph`;
-  }
+  return value;
 }
