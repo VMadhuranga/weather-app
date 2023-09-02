@@ -53,14 +53,14 @@ header > h1 {
 }
 
 main {
-  background-color: #e5e7eb;
+  background-color: #1f2937;
   flex-grow: 1;
 }
 
 .settings-container {
   font-size: 1rem;
   font-weight: bold;
-  color: #1f2937;
+  color: #e5e7eb;
   padding: 5px 10px;
   display: flex;
   justify-content: end;
@@ -79,7 +79,7 @@ main {
 
 .location {
   font-size: 1.8rem;
-  color: #1f2937;
+  color: #e5e7eb;
   text-align: center;
   margin: 20px 0 30px;
 }
@@ -119,8 +119,8 @@ main {
 .tomorrow-this-hour-weather {
   width: 600px;
   height: auto;
-  background-color: #6b7280;
-  padding: 10px;
+  border: 5px solid #6b7280;
+  padding: 20px;
   border-radius: 5px;
 }
 
