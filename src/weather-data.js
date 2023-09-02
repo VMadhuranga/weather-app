@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import {
   displayLocation,
   displayCurrentWeather,
@@ -27,6 +28,7 @@ export default async function fetchWeatherData(location = "auto:ip") {
     );
     changeWindSpeed(getCurrentWeather(data), getTomorrowThisHourWeather(data));
   } catch (error) {
+    // eslint-disable-next-line no-alert
     alert(error);
   }
 }
@@ -41,6 +43,7 @@ function getCurrentWeather(data) {
   const dateAndTime = data.location.localtime;
   const condition = data.current.condition.text;
   const conditionIcon = data.current.condition.icon;
+  // eslint-disable-next-line prefer-destructuring
   const humidity = data.current.humidity;
   const temperatureCelsius = data.current.temp_c;
   const temperatureFahrenheit = data.current.temp_f;
@@ -69,6 +72,7 @@ function getTomorrowThisHourWeather(data) {
   const dateAndTime = data.forecast.forecastday[1].hour[hour].time;
   const condition = data.forecast.forecastday[1].hour[hour].condition.text;
   const conditionIcon = data.forecast.forecastday[1].hour[hour].condition.icon;
+  // eslint-disable-next-line prefer-destructuring
   const humidity = data.forecast.forecastday[1].hour[hour].humidity;
   const temperatureCelsius = data.forecast.forecastday[1].hour[hour].temp_c;
   const temperatureFahrenheit = data.forecast.forecastday[1].hour[hour].temp_f;

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import fetchWeatherData from "./weather-data";
 
 const searchLocationInput = document.querySelector(
@@ -25,6 +26,7 @@ export default function searchLocation() {
     if (searchLocationInput.value) {
       fetchWeatherData(searchLocationInput.value);
     } else {
+      // eslint-disable-next-line no-alert
       alert("Please enter your location");
     }
   });
